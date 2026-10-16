@@ -13,7 +13,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   --ink: #202a27;
-  --muted: #67716c;
+  --muted: #000;
   --line: #d1d2c9;
   --accent: #537b62;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -304,7 +304,7 @@ a.project-link:hover {
   gap: 7px;
   margin: 0;
   padding-left: 19px;
-  color: #4e5b54;
+  color: #000;
   font-size: 0.9rem;
   line-height: 1.55;
 }
@@ -351,7 +351,7 @@ a.project-link:hover {
 
 .education-details p {
   margin: 0 0 7px;
-  color: #4e5b54;
+  color: #000;
   font-size: 0.9rem;
   line-height: 1.5;
 }
