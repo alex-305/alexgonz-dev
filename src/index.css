@@ -100,7 +100,7 @@ h1 {
 .portrait {
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 1 / 1.045;
+  aspect-ratio: 1 / 1.036;
 }
 
 .portrait img {
@@ -154,7 +154,6 @@ h1 {
 
 .content-section + .content-section {
   padding-top: 30px;
-  border-top: 1px solid var(--line);
 }
 
 h2 {
@@ -181,6 +180,10 @@ h2 {
   border-bottom: 1px solid var(--line);
   text-decoration: none;
   transition: color 0.18s ease;
+}
+
+.project-list > li:last-child .project-link {
+  border-bottom: 0;
 }
 
 a.project-link:hover {
@@ -242,6 +245,10 @@ a.project-link:hover {
   row-gap: 13px;
   padding: 20px 4px;
   border-bottom: 1px solid var(--line);
+}
+
+.experience-list > li:last-child {
+  border-bottom: 0;
 }
 
 .experience-list h3 {
@@ -312,6 +319,8 @@ a.project-link:hover {
   align-items: start;
   column-gap: 0;
   row-gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
 }
 
 .education-details h3 {
