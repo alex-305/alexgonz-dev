@@ -191,8 +191,8 @@ a.project-link:hover {
 
 .project-logo {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
 }
 
@@ -240,6 +240,35 @@ a.project-link:hover {
   font-size: 1rem;
 }
 
+.experience-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+}
+
+.experience-heading.has-logo {
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 12px;
+}
+
+.experience-copy {
+  grid-column: 1;
+}
+
+.experience-heading.has-logo .experience-copy {
+  grid-column: 2;
+}
+
+.experience-logo {
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
 .experience-list p,
 .experience-list > li > span {
   margin: 0;
@@ -282,11 +311,43 @@ a.project-link:hover {
   line-height: 1.4;
 }
 
+.education-details {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.education-logo {
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.education-copy {
+  grid-column: 2;
+}
+
 .education-details p {
   margin: 0 0 7px;
   color: #4e5b54;
   font-size: .9rem;
   line-height: 1.5;
+}
+
+.education-details .education-school {
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .75rem;
+}
+
+.education-details .education-minor {
+  margin-bottom: 0;
+  font-size: .84rem;
 }
 
 .education-dates {

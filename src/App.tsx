@@ -10,6 +10,7 @@ type Project = {
 type ExperienceEntry = {
   role: string
   organization: string
+  logo?: string
   dates: string
   highlights: string[]
 }
@@ -27,6 +28,7 @@ const experience: ExperienceEntry[] = [
   {
     role: 'Software Engineer - Solution Analyst',
     organization: 'Deloitte',
+    logo: '/icons/deloitte-mark.svg',
     dates: 'August 2025–Present',
     highlights: [
       'Developed enterprise-level software for Fortune 500 companies and state governments.',
@@ -37,6 +39,7 @@ const experience: ExperienceEntry[] = [
   {
     role: 'Computer Science Teacher',
     organization: 'Christopher Columbus High School',
+    logo: '/icons/columbus-c.svg',
     dates: 'January–July 2025',
     highlights: [
       'Instructed 100+ computer science students across 6 classes.',
@@ -67,7 +70,7 @@ function ProjectCopy({ name, description, logo }: Project) {
   return (
     <span className="project-copy">
       <span className="project-title-row">
-        {logo && <img className="project-logo" src={logo} alt="" width="32" height="32" />}
+        {logo && <img className="project-logo" src={logo} alt="" width="40" height="40" />}
         <span className="project-name">{name}</span>
       </span>
       {description && <span className="project-description">{description}</span>}
@@ -127,11 +130,14 @@ export default function App() {
           <Section id="experience" title="Professional Experience">
             {experience.length > 0 ? (
               <ol className="entry-list experience-list">
-                {experience.map(({ role, organization, dates, highlights }) => (
+                {experience.map(({ role, organization, logo, dates, highlights }) => (
                   <li key={`${role}-${organization}-${dates}`}>
-                    <div className="experience-heading">
-                      <h3>{role}</h3>
-                      <p>{organization}</p>
+                    <div className={`experience-heading${logo ? ' has-logo' : ''}`}>
+                      {logo && <img className="experience-logo" src={logo} alt="" width="40" height="40" />}
+                      <div className="experience-copy">
+                        <h3>{role}</h3>
+                        <p className="experience-organization">{organization}</p>
+                      </div>
                     </div>
                     <span>{dates}</span>
                     <ul className="experience-highlights">
@@ -148,9 +154,12 @@ export default function App() {
           <Section id="education" title="Education">
             <div className="education-entry">
               <div className="education-details">
-                <h3>Bachelor of Arts in Computer Science</h3>
-                <p>Florida State University</p>
-                <p className="education-minor">Minor in General Business</p>
+                <img className="education-logo" src="/icons/fsu-wordmark.svg" alt="" width="40" height="40" />
+                <div className="education-copy">
+                  <h3>Bachelor of Arts in Computer Science</h3>
+                  <p className="education-school">Florida State University</p>
+                  <p className="education-minor">Minor in General Business</p>
+                </div>
               </div>
               <a
                 className="degree-image"
