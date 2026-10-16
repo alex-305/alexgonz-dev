@@ -268,6 +268,64 @@ a.project-link:hover {
   color: var(--accent);
 }
 
+.education-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px max-content;
+  align-items: start;
+  column-gap: 0;
+  row-gap: 8px;
+}
+
+.education-details h3 {
+  margin: 0 0 9px;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.education-details p {
+  margin: 0 0 7px;
+  color: #4e5b54;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.education-dates {
+  justify-self: end;
+  margin: 2px 0 0 32px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .72rem;
+  text-align: right;
+}
+
+.degree-image {
+  grid-column: 2;
+  display: block;
+  width: 150px;
+  margin-left: 12px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.degree-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.degree-image span {
+  display: block;
+  padding: 7px 1px 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .68rem;
+}
+
+.degree-image:hover span {
+  color: var(--accent);
+}
+
 @media (max-width: 900px) {
   .site-shell {
     width: min(100% - 48px, 720px);
@@ -337,6 +395,27 @@ a.project-link:hover {
 
   .experience-list > li > span {
     text-align: left;
+  }
+
+  .education-entry {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .education-details {
+    grid-column: 1;
+  }
+
+  .education-dates {
+    grid-column: 1;
+    margin: 0;
+    text-align: left;
+  }
+
+  .degree-image {
+    grid-column: 1;
+    width: 150px;
+    margin: 6px 0 0;
   }
 }
 

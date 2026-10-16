@@ -143,6 +143,34 @@ export default function App() {
               <p className="experience-note">Experience details coming soon.</p>
             )}
           </Section>
+
+          <Section id="education" title="Education">
+            <div className="education-entry">
+              <div className="education-details">
+                <h3>Bachelor of Arts in Computer Science</h3>
+                <p>Florida State University</p>
+                <p className="education-minor">Minor in General Business</p>
+              </div>
+              <a
+                className="degree-image"
+                href="/fsu_degree.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open a larger image of Alex Gonzalez’s Florida State University diploma"
+              >
+                <img
+                  src="/fsu_degree.png"
+                  alt="Florida State University diploma for Alex Gonzalez’s Bachelor of Arts in Computer Science"
+                  width="2100"
+                  height="1650"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span>View diploma ↗</span>
+              </a>
+              <p className="education-dates">July 2021–December 2024</p>
+            </div>
+          </Section>
         </div>
       </main>
 
