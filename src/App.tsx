@@ -17,6 +17,7 @@ type ExperienceEntry = {
 const projects: Project[] = [
   {
     name: 'FlappyLetters.com',
+    description: 'A daily word game blending Wordle-style guessing with Flappy Bird-inspired flight.',
     url: 'https://flappyletters.com',
     logo: '/flappyletters-logo.svg',
   },
