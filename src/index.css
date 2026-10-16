@@ -417,7 +417,22 @@ a.project-link:hover {
   }
 
   .profile {
-    position: static;
+    display: contents;
+  }
+
+  .profile > h1 {
+    order: 1;
+    text-align: center;
+  }
+
+  .profile > .portrait {
+    order: 2;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .profile-socials {
+    order: 4;
   }
 
   .portrait {
@@ -426,6 +441,7 @@ a.project-link:hover {
   }
 
   .work-column {
+    order: 3;
     padding-top: 0;
   }
 }
@@ -439,10 +455,6 @@ a.project-link:hover {
     gap: 38px;
     padding-top: 28px;
     padding-bottom: 32px;
-  }
-
-  .profile {
-    display: block;
   }
 
   h1 {
