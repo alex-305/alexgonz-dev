@@ -148,12 +148,12 @@ h1 {
 
 .content-section {
   min-width: 0;
-  padding: 0 0 36px;
+  padding: 0 0 22px;
   scroll-margin-top: 32px;
 }
 
 .content-section + .content-section {
-  padding-top: 30px;
+  padding-top: 16px;
 }
 
 h2 {
@@ -455,11 +455,11 @@ a.project-link:hover {
   }
 
   .content-section {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 
   .content-section + .content-section {
-    padding-top: 26px;
+    padding-top: 14px;
   }
 
   .project-link {
