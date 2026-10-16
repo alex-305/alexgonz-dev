@@ -16,6 +16,7 @@
   --muted: #000;
   --line: #d1d2c9;
   --accent: #537b62;
+  --flappy-green: #228b3c;
   --fsu-garnet: #782f40;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
@@ -171,63 +172,148 @@ h2 {
   list-style: none;
 }
 
-.project-link {
-  min-height: 76px;
-  padding: 14px 4px;
+.resume-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 20px;
+  row-gap: 13px;
+  padding: 20px 4px;
   border-bottom: 1px solid var(--line);
 }
 
-.project-list > li:last-child .project-link {
+.project-list .resume-entry {
+  min-height: 76px;
+  padding: 14px 4px;
+  row-gap: 5px;
+}
+
+.project-list > li:last-child .resume-entry,
+.education-list .resume-entry {
   border-bottom: 0;
 }
 
-.project-title-link {
+.education-list .resume-entry {
+  padding-top: 20px;
+}
+
+.resume-entry-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+}
+
+.resume-entry-heading.has-logo {
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 12px;
+}
+
+.resume-entry-title-link {
+  grid-column: 1 / -1;
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
+  max-width: 100%;
   color: inherit;
   text-decoration: none;
   transition: color 0.18s ease;
 }
 
-.project-title-link:hover {
-  color: var(--accent);
+.resume-entry-title-link:hover {
+  color: var(--entry-link-color, var(--accent));
 }
 
-.project-copy {
-  display: grid;
-  gap: 5px;
+.resume-entry-title-link.flappy {
+  --entry-link-color: var(--flappy-green);
 }
 
-.project-title-row {
-  display: flex;
-  align-items: center;
-  gap: 7px;
+.resume-entry-title-link.garnet {
+  --entry-link-color: var(--fsu-garnet);
 }
 
-.project-logo {
-  display: block;
-  width: 40px;
-  height: 40px;
-  flex: 0 0 auto;
+.resume-entry-title-link h3,
+.resume-entry-copy h3 {
+  margin: 0 0 5px;
+  font-size: 1rem;
 }
 
-.project-name {
-  font-size: 1.08rem;
-  font-weight: 550;
+.resume-entry-title-link h3 {
+  margin: 0;
+  color: inherit;
   overflow-wrap: anywhere;
 }
 
-.project-description {
+.resume-entry-logo {
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.resume-entry-copy {
+  grid-column: 2;
+}
+
+.resume-entry-heading:not(.has-logo) .resume-entry-copy {
+  grid-column: 1;
+}
+
+.resume-entry-subtitle {
+  grid-column: 2;
+  margin: 0 0 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+.resume-entry-heading:not(.has-logo) > .resume-entry-subtitle {
+  grid-column: 1;
+}
+
+.resume-entry-arrow {
+  color: var(--entry-link-color, var(--accent));
+  font-size: 1.15rem;
+}
+
+.resume-entry-date {
+  grid-column: 2;
+  justify-self: end;
+  align-self: start;
+  margin: 2px 0 0 32px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.resume-entry-content {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.resume-entry-description {
+  margin: 0;
   color: var(--muted);
   font-size: 0.86rem;
-  font-weight: 400;
   line-height: 1.55;
 }
 
-.project-arrow {
+.resume-entry-highlights {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 19px;
+  list-style-type: circle;
+  color: #000;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.resume-entry-highlights li::marker {
   color: var(--accent);
-  font-size: 1.15rem;
 }
 
 .experience-note {
@@ -241,161 +327,8 @@ h2 {
   line-height: 1.6;
 }
 
-.experience-list > li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  column-gap: 20px;
-  row-gap: 13px;
-  padding: 20px 4px;
-  border-bottom: 1px solid var(--line);
-}
-
-.experience-list > li:last-child {
+.experience-list > li:last-child .resume-entry {
   border-bottom: 0;
-}
-
-.experience-list h3 {
-  margin: 0 0 5px;
-  font-size: 1rem;
-}
-
-.experience-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: center;
-}
-
-.experience-heading.has-logo {
-  grid-template-columns: 40px minmax(0, 1fr);
-  column-gap: 12px;
-}
-
-.experience-copy {
-  grid-column: 1;
-}
-
-.experience-heading.has-logo .experience-copy {
-  grid-column: 2;
-}
-
-.experience-logo {
-  display: block;
-  grid-column: 1;
-  grid-row: 1;
-  width: 40px;
-  height: 40px;
-  flex: 0 0 auto;
-  object-fit: contain;
-}
-
-.experience-list p,
-.experience-list > li > span {
-  margin: 0;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-}
-
-.experience-list > li > span {
-  flex-shrink: 0;
-  text-align: right;
-}
-
-.experience-highlights {
-  grid-column: 1 / -1;
-  display: grid;
-  gap: 7px;
-  margin: 0;
-  padding-left: 19px;
-  list-style-type: circle;
-  color: #000;
-  font-size: 0.9rem;
-  line-height: 1.55;
-}
-
-.experience-highlights li::marker {
-  color: var(--accent);
-}
-
-.education-entry {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content max-content;
-  align-items: start;
-  column-gap: 0;
-  row-gap: 8px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-}
-
-.education-details h3 {
-  margin: 0 0 9px;
-  font-size: 1.05rem;
-  line-height: 1.4;
-}
-
-.education-degree-link:hover {
-  color: var(--fsu-garnet);
-}
-
-.education-degree-link .project-arrow {
-  color: var(--fsu-garnet);
-}
-
-.education-details {
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  align-items: start;
-  column-gap: 12px;
-}
-
-.education-logo {
-  display: block;
-  grid-column: 1;
-  grid-row: 1;
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.education-copy {
-  grid-column: 2;
-}
-
-.education-details p {
-  margin: 0 0 7px;
-  color: #000;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.education-details .education-school {
-  margin-bottom: 7px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-}
-
-.education-details .education-minor {
-  grid-column: 1 / -1;
-  margin: 0;
-  padding-left: 23px;
-  list-style-type: circle;
-  font-size: 0.9rem;
-  line-height: 1.55;
-}
-
-.education-minor li::marker {
-  color: var(--accent);
-}
-
-.education-dates {
-  justify-self: end;
-  margin: 2px 0 0 32px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  text-align: right;
 }
 
 @media (max-width: 900px) {
@@ -467,31 +400,19 @@ h2 {
     padding-top: 14px;
   }
 
-  .experience-list > li {
-    align-items: flex-start;
+  .experience-list .resume-entry,
+  .education-list .resume-entry {
     grid-template-columns: 1fr;
     row-gap: 8px;
   }
 
-  .experience-list > li > span {
-    text-align: left;
-  }
-
-  .education-entry {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .education-details {
+  .experience-list .resume-entry-date,
+  .education-list .resume-entry-date {
     grid-column: 1;
-  }
-
-  .education-dates {
-    grid-column: 1;
+    justify-self: start;
     margin: 0;
     text-align: left;
   }
-
 }
 
 @media (max-height: 700px) and (min-width: 901px) {
@@ -505,7 +426,7 @@ h2 {
     scroll-behavior: auto;
   }
 
-  .project-link {
+  .resume-entry-title-link {
     transition: none;
   }
 
