@@ -66,15 +66,25 @@ function Section({
   )
 }
 
-function ProjectCopy({ name, description, logo }: Project) {
+function ProjectCopy({ name, description, url, logo }: Project) {
   return (
-    <span className="project-copy">
-      <span className="project-title-row">
-        {logo && <img className="project-logo" src={logo} alt="" width="40" height="40" />}
-        <span className="project-name">{name}</span>
-      </span>
+    <div className="project-copy">
+      <div className="project-title-row">
+        {url ? (
+          <a className="project-title-link" href={url} target="_blank" rel="noopener noreferrer">
+            {logo && <img className="project-logo" src={logo} alt="" width="40" height="40" />}
+            <span className="project-name">{name}</span>
+            <span className="project-arrow" aria-hidden="true">↗</span>
+          </a>
+        ) : (
+          <>
+            {logo && <img className="project-logo" src={logo} alt="" width="40" height="40" />}
+            <span className="project-name">{name}</span>
+          </>
+        )}
+      </div>
       {description && <span className="project-description">{description}</span>}
-    </span>
+    </div>
   )
 }
 
@@ -112,16 +122,9 @@ export default function App() {
             <ol className="entry-list project-list">
               {projects.map(({ name, description, url, logo }) => (
                 <li key={name}>
-                  {url ? (
-                    <a className="project-link" href={url} target="_blank" rel="noopener noreferrer">
-                      <ProjectCopy name={name} description={description} logo={logo} />
-                      <span className="project-arrow" aria-hidden="true">↗</span>
-                    </a>
-                  ) : (
-                    <div className="project-link">
-                      <ProjectCopy name={name} description={description} logo={logo} />
-                    </div>
-                  )}
+                  <div className="project-link">
+                    <ProjectCopy name={name} description={description} url={url} logo={logo} />
+                  </div>
                 </li>
               ))}
             </ol>
@@ -156,28 +159,23 @@ export default function App() {
               <div className="education-details">
                 <img className="education-logo" src="/icons/fsu-wordmark.svg" alt="" width="40" height="40" />
                 <div className="education-copy">
-                  <h3>Bachelor of Arts in Computer Science</h3>
+                  <h3>
+                    <a
+                      className="education-degree-link project-title-link"
+                      href="/fsu_degree.png"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Bachelor of Arts in Computer Science
+                      <span className="project-arrow" aria-hidden="true">↗</span>
+                    </a>
+                  </h3>
                   <p className="education-school">Florida State University</p>
-                  <p className="education-minor">Minor in General Business</p>
                 </div>
+                <ul className="education-minor">
+                  <li>Minor in General Business</li>
+                </ul>
               </div>
-              <a
-                className="degree-image"
-                href="/fsu_degree.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open a larger image of Alex Gonzalez’s Florida State University diploma"
-              >
-                <img
-                  src="/fsu_degree.png"
-                  alt="Florida State University diploma for Alex Gonzalez’s Bachelor of Arts in Computer Science"
-                  width="2100"
-                  height="1650"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span>View diploma ↗</span>
-              </a>
               <p className="education-dates">July 2021–December 2024</p>
             </div>
           </Section>
