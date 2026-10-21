@@ -336,6 +336,7 @@ h2 {
   body {
     overflow: hidden;
     --desktop-shell-width: min(calc(100vw - 64px), 1160px);
+    --desktop-layout-top-padding: clamp(32px, 7vh, 64px);
     --desktop-work-start: calc(
       (100vw - var(--desktop-shell-width)) / 2 + 310px + clamp(24px, 4vw, 56px)
     );
@@ -358,6 +359,7 @@ h2 {
     height: 100%;
     min-height: 0;
     grid-template-rows: minmax(0, 1fr);
+    padding-top: var(--desktop-layout-top-padding);
   }
 
   .profile {
@@ -369,6 +371,8 @@ h2 {
     align-self: stretch;
     min-width: 0;
     min-height: 0;
+    height: calc(100% + var(--desktop-layout-top-padding));
+    margin-top: calc(-1 * var(--desktop-layout-top-padding));
     margin-right: calc((var(--desktop-shell-width) - 100vw) / 2);
   }
 
@@ -387,7 +391,7 @@ h2 {
     overflow-y: auto;
     overscroll-behavior-y: contain;
     scrollbar-gutter: stable;
-    padding-top: 0;
+    padding-top: var(--desktop-layout-top-padding);
   }
 
   .work-content {
