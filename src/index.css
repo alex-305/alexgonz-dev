@@ -387,6 +387,7 @@ h2 {
     overflow-y: auto;
     overscroll-behavior-y: contain;
     scrollbar-gutter: stable;
+    padding-top: 0;
   }
 
   .work-content {
