@@ -43,35 +43,37 @@ export default function App() {
 
         <div className="work-column-frame">
           <div className="work-column" ref={workColumnRef}>
-            <Section id="projects" title="My Work">
-              <ol className="entry-list project-list">
-                {projects.map((entry) => (
-                  <li key={entry.title}>
-                    <ResumeEntry entry={entry} />
-                  </li>
-                ))}
-              </ol>
-            </Section>
-
-            <Section id="experience" title="Professional Experience">
-              {experienceEntries.length > 0 ? (
-                <ol className="entry-list experience-list">
-                  {experienceEntries.map((entry) => (
-                    <li key={`${entry.title}-${entry.date}`}>
+            <div className="work-content">
+              <Section id="projects" title="My Work">
+                <ol className="entry-list project-list">
+                  {projects.map((entry) => (
+                    <li key={entry.title}>
                       <ResumeEntry entry={entry} />
                     </li>
                   ))}
                 </ol>
-              ) : (
-                <p className="experience-note">Experience details coming soon.</p>
-              )}
-            </Section>
+              </Section>
 
-            <Section id="education" title="Education">
-              <div className="entry-list education-list">
-                {educationEntries.map((entry) => <ResumeEntry key={entry.title} entry={entry} />)}
-              </div>
-            </Section>
+              <Section id="experience" title="Professional Experience">
+                {experienceEntries.length > 0 ? (
+                  <ol className="entry-list experience-list">
+                    {experienceEntries.map((entry) => (
+                      <li key={`${entry.title}-${entry.date}`}>
+                        <ResumeEntry entry={entry} />
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p className="experience-note">Experience details coming soon.</p>
+                )}
+              </Section>
+
+              <Section id="education" title="Education">
+                <div className="entry-list education-list">
+                  {educationEntries.map((entry) => <ResumeEntry key={entry.title} entry={entry} />)}
+                </div>
+              </Section>
+            </div>
           </div>
           {showScrollCue && (
             <div className="scroll-cue" aria-hidden="true">
