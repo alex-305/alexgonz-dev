@@ -11,14 +11,18 @@ export default function Profile() {
         />
       </div>
       <nav className="profile-socials" aria-label="Social links">
-        <a className="social-icon" href="https://github.com/alex-305" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+        <p className="profile-socials-heading">Find me online</p>
+        <a className="social-icon" href="https://github.com/alex-305" target="_blank" rel="noopener noreferrer">
           <img src="/icons/github.svg" alt="" width="58" height="58" />
+          <span>GitHub</span>
         </a>
-        <a className="social-icon" href="https://www.youtube.com/@slaxonpc" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+        <a className="social-icon" href="https://www.youtube.com/@slaxonpc" target="_blank" rel="noopener noreferrer">
           <img src="/icons/youtube.svg" alt="" width="58" height="58" />
+          <span>YouTube</span>
         </a>
-        <a className="social-icon" href="https://www.linkedin.com/in/alexgonzalez305/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <a className="social-icon" href="https://www.linkedin.com/in/alexgonzalez305/" target="_blank" rel="noopener noreferrer">
           <img src="/icons/linkedin.svg" alt="" width="58" height="58" />
+          <span>LinkedIn</span>
         </a>
       </nav>
     </aside>

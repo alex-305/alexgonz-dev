@@ -117,17 +117,35 @@ h1 {
 .profile-socials {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: center;
+  align-items: start;
   width: 100%;
-  margin-top: 12px;
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.profile-socials-heading {
+  grid-column: 1 / -1;
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .profile-socials a {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 72px;
+  min-height: 78px;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+  color: inherit;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-decoration: none;
   transition:
     opacity 0.18s ease,
     transform 0.18s ease;
@@ -140,8 +158,8 @@ h1 {
 
 .profile-socials img {
   display: block;
-  width: clamp(44px, 5vw, 58px);
-  height: clamp(44px, 5vw, 58px);
+  width: clamp(36px, 4vw, 44px);
+  height: clamp(36px, 4vw, 44px);
 }
 
 .work-column {
