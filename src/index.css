@@ -16,6 +16,7 @@
   --muted: #000;
   --line: #d1d2c9;
   --accent: #537b62;
+  --work-surface: #f1efe8;
   --flappy-green: #228b3c;
   --fsu-garnet: #782f40;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -334,6 +335,17 @@ h2 {
 @media (min-width: 901px) {
   body {
     overflow: hidden;
+    --desktop-shell-width: min(calc(100vw - 64px), 1160px);
+    --desktop-work-start: calc(
+      (100vw - var(--desktop-shell-width)) / 2 + 310px + clamp(24px, 4vw, 56px)
+    );
+    background: linear-gradient(
+      to right,
+      #eae7df 0,
+      #eae7df var(--desktop-work-start),
+      var(--work-surface) var(--desktop-work-start),
+      var(--work-surface) 100%
+    );
   }
 
   .site-shell {
@@ -359,6 +371,15 @@ h2 {
     min-height: 0;
   }
 
+  .work-column-frame::before {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: var(--desktop-work-start);
+    border-left: 1px solid var(--line);
+    content: "";
+  }
+
   .work-column {
     height: 100%;
     min-height: 0;
@@ -378,7 +399,7 @@ h2 {
     justify-content: center;
     gap: 9px;
     padding: 32px 16px 12px;
-    background: linear-gradient(to bottom, transparent, rgb(234 231 223 / 94%) 48%);
+    background: linear-gradient(to bottom, transparent, var(--work-surface) 48%);
     color: var(--ink);
     font-family: var(--mono);
     font-size: 0.72rem;
