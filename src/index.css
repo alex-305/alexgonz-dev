@@ -98,6 +98,7 @@ h1 {
   font-size: clamp(2.7rem, 4vw, 3.6rem);
   letter-spacing: -0.075em;
   line-height: 0.98;
+  white-space: nowrap;
 }
 
 .portrait {
@@ -160,6 +161,21 @@ h1 {
   display: block;
   width: clamp(36px, 4vw, 44px);
   height: clamp(36px, 4vw, 44px);
+}
+
+.profile-email {
+  display: block;
+  margin-top: 12px;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-align: center;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+
+.profile-email:hover {
+  color: var(--accent);
 }
 
 .work-column {

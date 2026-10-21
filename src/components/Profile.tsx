@@ -25,6 +25,7 @@ export default function Profile() {
           <span>LinkedIn</span>
         </a>
       </nav>
+      <a className="profile-email" href="mailto:mail@alexgonz.dev">mail@alexgonz.dev</a>
     </aside>
   )
 }
